@@ -1,8 +1,5 @@
 /* main navbar */
-.main-nav > .nav-link:hover {
-    background-color: rgb(218, 218, 218);
+.nav-buttons > a:hover {
+    text-decoration: underline solid 2px rgb(248,249,250);
+    text-underline-offset: 4px;
 }
-
-/* .contact-bar {
-    background-color: rgb(190, 190, 190);
-} */
