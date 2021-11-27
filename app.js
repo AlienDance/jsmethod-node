@@ -10,5 +10,5 @@ app.get('/', (req, res) => {
 });
 
 app.get('/landing', (req, res) => {
-    res.render('./landing-page/index', { title: 'SOMETHING' });
+    res.render('./landing-page/landing', { title: 'SOMETHING' });
 });
