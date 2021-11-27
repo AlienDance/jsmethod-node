@@ -10,9 +10,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/landing', (req, res) => {
-    res.render('./landing-page/landing', { title: 'SOMETHING' });
+    res.render('landing-page/landing', { title: 'SOMETHING' });
 });
 
 app.get('/test', (req, res) => {
-    res.render('./test');
+    res.render('test');
 })
