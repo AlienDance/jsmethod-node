@@ -1,0 +1,161 @@
+<%- include('./partials/_head') %>
+<body class="bg-dark">
+    <%- include('./partials/_navbar') %>
+
+    <div class="container carousel-container" id="home">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev d-flex justify-content-start ps-4" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next d-flex justify-content-end pe-4" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container my-0" id="about">
+        <p class="lead text-center display-3 text-light">ABOUT US</p>
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body text-light bg-dark">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor laborum aperiam harum molestias, voluptatum veritatis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body text-light bg-dark">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, dolores?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body text-light bg-dark">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi fugiat tempore sit! Non esse debitis fugit!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body text-light bg-dark">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est praesentium obcaecati, vitae illo, totam hic odit quia odio veniam eaque quos delectus impedit sint harum expedita quo voluptates repellat maxime iure nobis ullam? Itaque, aliquam laboriosam explicabo numquam, doloribus quae quia sunt perferendis repellendus ab obcaecati deleniti! Ad, minus eum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="gallery">
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header py-2">
+                <h5 class="modal-title" id="exampleModalLabel">ESHOP</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <img src="" class="w-100" alt="">
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <p class="lead text-center display-3 text-light">GALLERY</p>
+        <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                <img src="" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+                <img src="" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+                <img src="" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                <img src="" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+                <img src="" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+                <img src="" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                <img src="" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+                <img src="" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+                <img src="" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-3" id="contacts">
+        <p class="lead text-center display-3 text-light">CONTACTS</p>
+        <iframe
+            class="border border-dark rounded"
+            width="100%"
+            height="550"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCNmIe9cDRLLGqNeOd855wTix5vYYQ7HTo
+                &q=Eiffel Tower, Paris">
+        </iframe>
+        <div class="my-2 mb-4 text-light">
+            <div class="d-flex justify-content-center contact-lines">
+                <p class="d-flex align-items-center lead text-center fs-4"><img class="pt-1" src="/landing-page-stuff/icons/geo-alt-fill.svg" alt="">Our location: There and here</p>
+            </div>
+            <div class="d-flex justify-content-center contact-lines">
+                <p class="d-flex align-items-center lead text-center fs-4"><img class="pt-1" src="/landing-page-stuff/icons/telephone.svg" alt="">Phone: +123456789</p>
+            </div>
+            <div class="d-flex justify-content-center contact-lines">
+                <p class="d-flex align-items-center lead text-center fs-4"><img class="pt-1" src="/landing-page-stuff/icons/envelope-fill.svg" alt="">Mail: somemail@something.com</p>
+            </div>
+            <div class="d-flex justify-content-center contact-lines">
+                <a href="/" class="d-flex align-items-center lead text-center fs-4 text-light">Exit Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+        let carouselImages = document.querySelectorAll('.carousel-item > img');
+        let galleryImages = document.querySelectorAll('#gallery > .row > div > img');
+        let modalImg = document.querySelector('.modal-body > img');
+
+        galleryImages.forEach((image) => {
+            image.setAttribute('data-bs-toggle', 'modal');
+            image.setAttribute('data-bs-target', '#exampleModal')
+            image.addEventListener('click', () => {
+                imgSrc = image.getAttribute('src');
+                modalImg.src = imgSrc;
+            })
+        });
+
+        const generateRandomNumber = () => Math.floor(Math.random() * 500000);
+
+        const generateRandomImages = (element, resolution, sig) => {
+            fetch(`https://source.unsplash.com/random/${resolution}/${sig}${generateRandomNumber()}`)
+                .then(result => element.setAttribute('src', result.url))
+                .catch(err => console.log(err));
+        };
+
+        carouselImages.forEach((image) => generateRandomImages(image, '1920x1080', '?sig='));
+        galleryImages.forEach((image) => generateRandomImages(image, '', ''));
+    </script>
+</body>
+</html>

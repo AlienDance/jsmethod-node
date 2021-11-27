@@ -12,3 +12,9 @@
     width: 70px;
     margin: 0px 10px;
 }
+
+.popover-body > ul > li a {
+    text-decoration: none;
+    font-size: large;
+    border-bottom: 2px solid;
+}

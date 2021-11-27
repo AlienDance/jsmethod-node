@@ -8,3 +8,7 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
     res.render('index', { title: 'Home' });
 });
+
+app.get('/landing', (req, res) => {
+    res.render('landing-page/index', { title: 'SOMETHING' });
+});
