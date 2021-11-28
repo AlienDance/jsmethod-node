@@ -3,7 +3,6 @@
 }
 
 .nav-link:hover {
-    /* background-color: rgb(252, 214, 165); */
     text-decoration: underline 1px;
     text-underline-offset: 3px;
 }
@@ -41,7 +40,24 @@
 }
 
 .contact-lines > p > img {
-    color: white;
+    color: rgb(248,249,250);
     margin-right: 5px;
     width: 25px;
+}
+
+#gallery > .row > div > a > img:hover {
+    border: 2px rgb(248,249,250) solid;
+    cursor: pointer;
+}
+
+#gallery > .row > div > a > img {
+    border: 2px rgba(0, 0, 0, 0) solid;
+}
+
+.contact-lines > p > svg {
+    fill: rgb(248,249,250);
+    width: 23px;
+    height: 23px;
+    margin-right: 5px;
+    padding-top: 1px;
 }
