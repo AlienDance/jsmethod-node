@@ -1,17 +1,17 @@
-.eshop-main-link {
-    text-decoration: none;
-}
-
 .nav-link:hover {
     text-decoration: underline 1px;
     text-underline-offset: 3px;
+}
+
+.nav-link {
+    width: fit-content;
 }
 
 .card {
     height: 100%;
 }
 
-.main-navbar {
+.navbar {
     background-color: rgb(22, 22, 22);
 }
 
@@ -20,22 +20,22 @@
 }
 
 #gallery{
-    position: relative;
+    /* position: relative; */
     padding-top: 100px;
 }
 
 #about{
-    position: relative;
+    /* position: relative; */
     padding-top: 100px;
 }
 
 #home{
-    position: relative;
+    /* position: relative; */
     padding-top: 140px;
 }
 
 #contacts{
-    position: relative;
+    /* position: relative; */
     padding-top: 50px;
 }
 
@@ -45,19 +45,20 @@
     width: 25px;
 }
 
-#gallery > .row > div > a > img:hover {
+#gallery > .row > div > a > div > img:hover {
     border: 2px rgb(248,249,250) solid;
     cursor: pointer;
 }
 
-#gallery > .row > div > a > img {
+#gallery > .row > div > a > div > img {
     border: 2px rgba(0, 0, 0, 0) solid;
-}
+    object-fit: cover;
+} 
 
-.contact-lines > p > svg {
+.contact-lines > svg {
     fill: rgb(248,249,250);
     width: 23px;
     height: 23px;
     margin-right: 5px;
-    padding-top: 1px;
+    padding-bottom: 2px;
 }
