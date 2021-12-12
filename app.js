@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const history = require('connect-history-api-fallback');
 const { lorem, firstLetterCap } = require('./lorem-ipsum/lorem');
 
 app.listen(5000, () => console.log('server is up!'));
@@ -8,12 +9,18 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Home' });
-});
-
 app.get('/landing', (req, res) => {
   res.render('landing', { title: 'SOMETHING' });
+});
+
+app.use(
+  history({
+    index: '/'
+  })
+);
+
+app.get('/', (req, res) => {
+  res.render('index', { title: 'Home' });
 });
 
 app.post('/lorem', (req, res) => {
