@@ -1,13 +1,21 @@
 const express = require('express');
 const app = express();
 const history = require('connect-history-api-fallback');
-const { lorem, firstLetterCap } = require('./lorem-ipsum/lorem');
+const generateLorem = require('./middleware/lorem');
+const mongoose = require('mongoose');
+require('dotenv').config();
+const authRouter = require('./routes/authRoutes');
+const cookieParser = require('cookie-parser');
+const { strategy, checkUser } = require('./middleware/authMiddleware');
+const passport = require('passport');
 
-app.listen(5000, () => console.log('server is up!'));
+passport.use(strategy);
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
+app.use(passport.initialize());
 
 app.get('/landing', (req, res) => {
   res.render('landing', { title: 'SOMETHING' });
@@ -20,19 +28,17 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Home' });
+  checkUser(req, res);
 });
 
-app.post('/lorem', (req, res) => {
-  if (req.body.sentQuan) {
-    res.json({
-      lorem: lorem.generateSentences(Number(req.body.sentQuan))
-    });
-  } else if (req.body.card) {
-    res.json({
-      loremSmall: lorem.generateSentences(2),
-      loremBig: lorem.generateSentences(6),
-      loremTitle: firstLetterCap(lorem.generateWords(3))
-    });
-  }
-});
+app.post('/lorem', generateLorem);
+
+app.use('/', authRouter);
+
+mongoose
+  .connect(process.env.DB_URI)
+  .then(result => {
+    console.log('connected to db');
+    app.listen(5000, console.log('server is up!'));
+  })
+  .catch(err => console.log(err));
