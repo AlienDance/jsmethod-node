@@ -11,7 +11,7 @@ const signup_get = (req, res) => {
   res.render('signup');
 };
 
-const maxAge = 1000 * 60 * 60 * 24;
+const maxAge = 1000 * 60 * 60 * 24 * 3;
 
 const login_post = (req, res) => {
   console.log('login post');
@@ -22,8 +22,8 @@ const login_post = (req, res) => {
       if (auth) {
         console.log('successful auth');
         const token = jwt.sign({ id: result._id }, process.env.JWT_KEY);
-        res.cookie('user', 'isAuth', { httpOnly: false });
-        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge });
+        res.cookie('user', 'isAuth', { httpOnly: false, maxAge });
+        res.cookie('jwt', token, { httpOnly: true, maxAge });
         res.json({ succes: 'success' });
       } else {
         console.log('Password is incorrect!');
@@ -45,8 +45,8 @@ const signup_post = (req, res) => {
         User.create(user)
           .then(result => {
             const token = jwt.sign({ id: result._id }, process.env.JWT_KEY);
-            res.cookie('user', 'isAuth', { httpOnly: false });
-            res.cookie('jwt', token, { httpOnly: true }).json({ success: 'Successful signup!' });
+            res.cookie('user', 'isAuth', { httpOnly: false, maxAge });
+            res.cookie('jwt', token, { httpOnly: true, maxAge }).json({ success: 'Successful signup!' });
           })
           .catch(err => console.log(err));
       } else {

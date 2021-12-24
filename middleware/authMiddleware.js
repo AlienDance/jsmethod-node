@@ -30,10 +30,12 @@ const strategy = new jwtStrategy(opts, (jwt_payload, done) => {
   });
 });
 
-const removeCookies = (res) => {
+const removeCookies = res => {
   res.cookie('user', '', { maxAge: 1 });
   res.cookie('jwt', '', { maxAge: 1 });
 };
+
+const maxAge = 1000 * 60 * 60 * 24 * 3;
 
 const checkUser = (req, res, next) => {
   console.log('checkUser func');
@@ -46,7 +48,7 @@ const checkUser = (req, res, next) => {
           .then(result => {
             if (result) {
               console.log('decoded');
-              res.cookie('user', 'isAuth', { httpOnly: false }).render('index', { token });
+              res.cookie('user', 'isAuth', { httpOnly: false, maxAge }).render('index');
             } else {
               removeCookies(res);
               res.render('index');
