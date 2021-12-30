@@ -12,6 +12,8 @@ const createHtmlTemplate = (firstName, lastName, email, phone, address, order) =
 };
 
 const sendMail = async (user, order) => {
+  console.log('send mail func');
+
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,

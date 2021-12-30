@@ -38,6 +38,7 @@ app.get('/commerce', (req, res) => {
 });
 
 app.post('/commerce/sendorder', (req, res) => {
+  console.log('send order request')
   const orderInfo = req.body.orderInfo;
   sendMail(orderInfo.user, orderInfo.order);
 });
