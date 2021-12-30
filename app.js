@@ -8,6 +8,7 @@ const authRouter = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const { strategy, checkUser } = require('./middleware/authMiddleware');
 const passport = require('passport');
+const sendMail = require('./middleware/nodemailer');
 
 passport.use(strategy);
 app.set('view engine', 'ejs');
@@ -23,12 +24,22 @@ app.get('/landing', (req, res) => {
 
 app.use(
   history({
-    index: '/'
+    index: '/',
+    rewrites: [{ from: '/commerce/*', to: '/commerce' }]
   })
 );
 
 app.get('/', (req, res) => {
   checkUser(req, res);
+});
+
+app.get('/commerce', (req, res) => {
+  res.render('commerce-app');
+});
+
+app.post('/commerce/sendorder', (req, res) => {
+  const orderInfo = req.body.orderInfo;
+  sendMail(orderInfo.user, orderInfo.order);
 });
 
 app.post('/lorem', generateLorem);
