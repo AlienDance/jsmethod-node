@@ -1,26 +1,34 @@
+// server
 const express = require('express');
 const app = express();
 const history = require('connect-history-api-fallback');
-const generateLorem = require('./middleware/lorem');
+const server = require('http').createServer(app);
+const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
+
+// routers
 const authRouter = require('./routes/authRoutes');
 const eshopRouter = require('./routes/eshopRoutes');
+
+// passport
 const cookieParser = require('cookie-parser');
-const { strategy, checkUser } = require('./middleware/authMiddleware');
 const passport = require('passport');
-const cors = require('cors');
-const Order = require('./models/Order');
-const server = require('http').createServer(app);
+const { strategy, checkUser } = require('./middleware/authMiddleware');
+passport.use(strategy);
+
+// socket.io
 const { Server } = require('socket.io');
 const io = new Server(server, {
   cors: {
     methods: ['GET', 'POST']
   }
 });
+
+// other middleware
+const generateLorem = require('./middleware/lorem');
 const eshopCreateOrder = require('./middleware/eshopCreateOrder');
 
-passport.use(strategy);
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
@@ -33,19 +41,22 @@ io.on('connection', socket => {
   socket.on('NEW_ORDER', order => eshopCreateOrder(io, socket, order));
 });
 
-app.get('/landing', (req, res) => {
-  res.render('landing', { title: 'SOMETHING' });
-});
-
 app.use(
   history({
     index: '/',
-    rewrites: [{ from: '/eshop/*', to: '/eshop' }]
+    rewrites: [
+      { from: '/eshop/*', to: '/eshop' },
+      { from: '/landing', to: '/landing' }
+    ]
   })
 );
 
 app.get('/', (req, res) => {
   checkUser(req, res);
+});
+
+app.get('/landing', (req, res) => {
+  res.render('landing', { title: 'SOMETHING' });
 });
 
 app.post('/lorem', generateLorem);
