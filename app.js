@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/landing', (req, res) => {
-  res.render('landing', { title: 'SOMETHING' });
+  res.render('landing');
 });
 
 app.post('/lorem', generateLorem);
