@@ -38,7 +38,14 @@ app.use(passport.initialize());
 app.use(cors());
 
 io.on('connection', socket => {
+  console.log('connected to io');
   socket.on('NEW_ORDER', order => eshopCreateOrder(io, socket, order));
+  socket.on('NEW_CHAT_MESSAGE', messageInfo => {
+    console.log(`${messageInfo.username}: ${messageInfo.message}`);
+    const time = new Date();
+    messageInfo.time = time.toLocaleTimeString('en-GB');
+    io.emit('NEW_CHAT_MESSAGE', messageInfo);
+  });
 });
 
 app.use(
